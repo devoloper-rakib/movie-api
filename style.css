@@ -124,6 +124,34 @@ header form input {
 	transition: transform 0.4s ease-in;
 }
 
+.pagination {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+.pagination #prev,
+#next {
+	padding: 13px 32px;
+	font-size: 22px;
+	margin: 0 10px;
+	border-radius: 5px;
+	background-color: var(--secondary-color);
+	cursor: pointer;
+	outline: none;
+	border: none;
+	transition: all linear 0.3s;
+}
+.pagination #prev,
+#next:hover {
+	color: var(--red-color);
+	transition: all linear 0.3s;
+}
+
+/* responsive part start  */
 @media only screen and (max-width: 480px) {
 	.main {
 		grid-template-columns: 1fr;

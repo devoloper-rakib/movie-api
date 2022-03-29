@@ -2,6 +2,9 @@
 const urlApi =
 	'https://api.themoviedb.org/3/discover/movie?api_key=930ef87935b15c37f17e429d16d4dc9c&sort_by=popularity.desc&include_adult=false&include_video=false&page=1';
 
+const normalApi =
+	'https://api.themoviedb.org/3/discover/movie?api_key=930ef87935b15c37f17e429d16d4dc9c&sort_by=popularity.desc&include_adult=false&include_video=false&page=';
+
 const imgApi = 'https://image.tmdb.org/t/p/original';
 
 const searchUrl =
@@ -76,5 +79,27 @@ form.addEventListener('submit', function (reload) {
 		return 'oh no movie not found';
 	} else {
 		window.location.reload();
+	}
+});
+
+// *** button prev and next ***
+
+const prevButton = document.getElementById('prev');
+const nextButton = document.getElementById('next');
+
+var pNumber = 1;
+nextButton.addEventListener('click', function (reload) {
+	reload.preventDefault();
+	pNumber += 1;
+	getMovies(normalApi + pNumber);
+});
+prevButton.addEventListener('click', function (reload) {
+	reload.preventDefault();
+	pNumber -= 1;
+	if (pNumber <= 1) {
+		getMovies(urlApi);
+		pNumber = 1;
+	} else {
+		getMovies(normalApi + pNumber);
 	}
 });
